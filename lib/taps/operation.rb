@@ -276,6 +276,7 @@ class Pull < Operation
     puts "#{tables.size} tables, #{format_number(record_count)} records"
 
     tables.each do |table_name, count|
+      puts "About to action #{table_name}"
       progress = ProgressBar.new(table_name.to_s, count)
       stream = Taps::DataStream.factory(db, {
         :chunksize => default_chunksize,
